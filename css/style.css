@@ -1,0 +1,106 @@
+body,
+div,
+ul,
+li,
+a,
+p,
+h1 {
+	margin: 0px;
+	padding: 0px;
+}
+
+fieldset,
+img,
+a,
+html,
+body {
+	border: 0;
+	text-decoration: none;
+	color: #787879;
+}
+
+li {
+	list-style: none;
+}
+
+body {
+	background-image: url("../img/bg.jpg");
+	color: #787879;
+	font-family: "微软雅黑";
+	font-weight: normal;
+	word-wrap: break-word;
+}
+
+.left {
+	position: absolute;
+	margin-left: 70px;
+	margin-top: 30px;
+	display: inline-block;
+}
+.left a:hover{
+	color: cornflowerblue;
+}
+
+.zh {
+	padding-right: 5px;
+	border-right: solid #787879 1px;
+}
+
+.right {
+	position: absolute;
+	right: 0px;
+	margin-top: 30px;
+	margin-right: 70px;
+}
+
+.right li {
+	float: left;
+	padding-left: 30px;
+}
+
+.right a .line {
+	left: -70px;
+}
+
+.right a:hover .line {
+	position: relative;
+	width: 100%;
+	height: 2px;
+	background-color: dimgray;
+	display: block;
+	transition: all 0.5s;
+	left: 0px;
+}
+
+.wrap {
+	width: 100%;
+	position: relative;
+	top: 200px;
+	text-align: center;
+}
+
+.wrap img {
+	border-radius: 50%;
+	margin-bottom: 40px;
+}
+
+.wrap img:hover {
+	box-shadow: 0 0 5px 1px #787879;
+	opacity: 0.75;
+}
+
+.wrap h1 {
+	font-size: 24px;
+	line-height: 38px;
+	letter-spacing: 2px;
+	margin-bottom: 20px;
+}
+
+.wrap p {
+	font-family: "宋体";
+	letter-spacing: 5px;
+}
+
+.wrap .en{
+	letter-spacing: normal;
+}
