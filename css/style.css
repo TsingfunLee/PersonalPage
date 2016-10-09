@@ -17,14 +17,14 @@ body {
 	border: 0;
 	text-decoration: none;
 	color: #787879;
+	overflow: hidden;
 }
 
 li {
 	list-style: none;
 }
 
-body {
-	background-image: url("../img/bg.jpg");
+body {	
 	font-family: "微软雅黑";
 	font-weight: normal;
 	word-wrap: break-word;
@@ -35,6 +35,7 @@ body {
 	margin-left: 70px;
 	margin-top: 30px;
 	display: inline-block;
+	z-index: 2;
 }
 .left a:hover{
 	color: cornflowerblue;
@@ -50,6 +51,7 @@ body {
 	right: 0px;
 	margin-top: 30px;
 	margin-right: 70px;
+	z-index: 2;
 }
 
 .right li {
@@ -68,7 +70,7 @@ body {
 	height: 2px;
 	background-color: dimgray;
 	display: block;
-	transition: all 0.5s;
+	transition: all .5s;
 	left: 0px;
 }
 
@@ -77,6 +79,7 @@ body {
 	position: relative;
 	top: 200px;
 	text-align: center;
+	z-index: 2;
 }
 
 .wrap img {
@@ -88,14 +91,14 @@ body {
 
 .wrap img:hover {
 	box-shadow: 0 0 5px 1px #787879;
-	opacity: 0.75;
+	opacity: .75;
 }
 
 .wrap h1 {
 	font-size: 24px;
 	line-height: 38px;
 	letter-spacing: 2px;
-	margin-bottom: 20px;
+	margin-bottom: 1em;
 }
 
 .wrap p {
@@ -105,4 +108,12 @@ body {
 
 .wrap .en{
 	letter-spacing: normal;
+}
+
+#canvas {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-image: url("../img/bg.jpg");
+	z-index: 1;
 }
