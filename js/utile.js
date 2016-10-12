@@ -24,8 +24,8 @@ window.utils.captureMouse = function(canvas) {
 		//将当前的坐标值减去元素的偏移位置，即为鼠标位于当前canvas的位置
 		var canBox = canvas.getBoundingClientRect();
 
-        x = (x - canBox.left) * (canvas.width / canBox.width);
-        y = (y - canBox.top) * (canvas.height / canBox.height);
+		x = (x - canBox.left) * (canvas.width / canBox.width);
+		y = (y - canBox.top) * (canvas.height / canBox.height);
 
 		mouse.x = x;
 		mouse.y = y;
@@ -33,3 +33,56 @@ window.utils.captureMouse = function(canvas) {
 	//返回值为mouse对象
 	return mouse;
 }
+
+window.utils.captureTouch = function(element) {
+	var touch = {
+		x: null,
+		y: null,
+		isPressed: false,
+		event: null
+	};
+	var body_scrollLeft = document.body.scrollLeft,
+		element_scrollLeft = document.documentElement.scrollLeft,
+		body_scrollTop = document.body.scrollTop,
+		element_scrollTop = document.documentElement.scrollTop,
+		canBox = canvas.getBoundingClientRect(),
+		offsetLeft = canBox.left,
+		offsetTop = canBox.top;
+
+	// 绑定touchstart事件
+	element.addEventListener('touchstart', function(event) {
+		touch.isPressed = true;
+		touch.event = event;
+	}, false);
+
+	// 绑定touchend事件
+	element.addEventListener('touchend', function(event) {
+		touch.isPressed = false;
+		touch.x = null;
+		touch.y = null;
+		touch.event = event;
+	}, false);
+
+	//绑定touchmove事件
+	element.addEventListener('touchmove', function(event) {
+		var x, y,
+			touch_event = event.touches[0]; //第一次touch
+
+		if(touch_event.pageX || touch_event.pageY) {
+			x = touch_event.pageX;
+			y = touch_event.pageY;
+		} else {
+			x = touch_event.clientX + body_scrollLeft + element_scrollLeft;
+			y = touch_event.clientY + body_scrollTop + element_scrollTop;
+		}
+		//减去偏移量
+		x = (x - offsetLeft) * (canvas.width / canBox.width);
+		y = (y - offsetTop) * (canvas.height / canBox.height);
+
+		touch.x = x;
+		touch.y = y;
+		touch.event = event;
+	}, false);
+	//返回touch对象
+	return touch;
+};
