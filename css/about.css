@@ -62,7 +62,10 @@ article div{
 	border: none;
 	color: #fff;
 	background-color: #787879;
-	font-size: 14px;	
+	font-size: 14px;
+    text-decoration: none;
+    line-height: 50px;
+    text-align: center;
 }
 
 .back:hover{
